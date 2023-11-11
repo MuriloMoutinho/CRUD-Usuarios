@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:sqlite:src/main/resources/database.db
+
+    driverClassName: org.sqlite.JDBC
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: validate
+
+security:
+  token-secret: ${JWT_SECRET:6c1420b8f3be7a61357ecc82a1c391dffe438930c103466b1660625e42ac91a6}
+
+server:
+  error:
+    include-message: always
+
+spring.jackson.default-property-inclusion: non_null
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.springframework.web.servlet: DEBUG
