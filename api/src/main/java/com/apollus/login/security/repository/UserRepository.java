@@ -13,4 +13,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     Optional<User> findByEmail(String email);
 
+    @Query("SELECT u FROM User u WHERE LOWER(u.email) = LOWER(CONCAT('%', :userEmail, '%'))")
+    Page<User> findAllByEmail(@Param("userEmail") String email, Pageable pageable);
+
+    boolean existsByEmail(String email);
 }

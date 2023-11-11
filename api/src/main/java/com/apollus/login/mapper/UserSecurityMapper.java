@@ -1,4 +1,4 @@
-package com.apollus.login.security.mapper;
+package com.apollus.login.mapper;
 
 import com.apollus.login.security.config.user.UserSecurity;
 import com.apollus.login.security.domain.User;
