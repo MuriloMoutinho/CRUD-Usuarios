@@ -1,0 +1,27 @@
+::-webkit-scrollbar {
+    width: 13px;
+    background-color: black;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-left: 2px solid black;
+    background-color: white;
+    border-radius: 5px;
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ul {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
