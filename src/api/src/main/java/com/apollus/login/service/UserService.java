@@ -27,7 +27,8 @@ public class UserService {
     private AuthenticatedUserService authenticatedUserService;
 
     public Page<UserResponse> getUsers(String email, Pageable pageable){
-        return userRepository.findAllByEmail(email, pageable).map(UserMapper::ToReponse);
+        return userRepository.findAllByEmail(email, pageable)
+                .map(UserMapper::ToReponse);
     }
 
     public UserResponse getLoggedProfile() {
@@ -55,8 +56,8 @@ public class UserService {
 
     @Transactional
     public UserResponse postUser(UserRequest request) {
-        boolean isEmailUnique = userRepository.existsByEmail(request.getEmail());
-        if(!isEmailUnique){
+        boolean isEmailExists = userRepository.existsByEmail(request.getEmail());
+        if(isEmailExists){
             throw new ResponseStatusException(UNPROCESSABLE_ENTITY, "Este email já está em uso");
         }
 

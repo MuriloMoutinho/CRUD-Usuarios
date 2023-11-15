@@ -8,6 +8,9 @@ spring:
     hibernate:
       ddl-auto: validate
 
+front-end:
+  path: ${PATH_APP:http://localhost:4200}
+
 security:
   token-secret: ${JWT_SECRET:6c1420b8f3be7a61357ecc82a1c391dffe438930c103466b1660625e42ac91a6}
 

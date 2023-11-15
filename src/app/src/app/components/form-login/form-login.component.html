@@ -1,5 +1,17 @@
-<form action="">
-  <input type="email" [(ngModel)]="email" name="name" placeholder="Email" />
-  <input type="password" placeholder="Senha" />
+<form (ngSubmit)="onSubmit()">
+  <input
+    type="email"
+    [(ngModel)]="loginRequest.email"
+    name="name"
+    placeholder="Email"
+  />
+  <input
+    type="password"
+    [(ngModel)]="loginRequest.password"
+    name="password"
+    placeholder="Senha"
+  />
+
+  <p *ngIf="!!loginErrorMessage">{{ loginErrorMessage }}</p>
   <button>Enviar</button>
 </form>
