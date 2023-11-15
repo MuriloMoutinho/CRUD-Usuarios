@@ -1,14 +1,16 @@
-<form (ngSubmit)="onSubmit()">
+<form >
   <input
     type="email"
     [(ngModel)]="loginRequest.email"
     name="name"
+    required
     placeholder="Email"
   />
   <input
     type="password"
     [(ngModel)]="loginRequest.password"
     name="password"
+    required
     placeholder="Senha"
   />
 
