@@ -1,0 +1,5 @@
+<div class="pagination">
+  <button (click)="handlePrevPage()" [disabled]="isFirstPage()">Voltar</button>
+  <p>{{ page + 1 }} / {{ totalPages }}</p>
+  <button (click)="handleNextPage()" [disabled]="lastPage">Próxima</button>
+</div>

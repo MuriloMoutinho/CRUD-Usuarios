@@ -1,0 +1,44 @@
+<div class="overlay" (click)="handleCloseModal()"></div>
+
+<div class="modal-container">
+  <button class="close-btn" (click)="handleCloseModal()">X</button>
+
+  <form
+    (ngSubmit)="onSubmitEditUser()"
+    class="default-form"
+    [formGroup]="formEditUser"
+    #formDir="ngForm"
+  >
+    <label>
+      Email:
+      <input type="email" formControlName="email" placeholder="Email" />
+      <div *ngIf="email.invalid && formDir.submitted">
+        <p class="error-message" *ngIf="email.errors?.['required']">
+          O email deve ser preenchido
+        </p>
+      </div>
+    </label>
+    <label>
+      Senha: (opcional)
+      <input type="password" formControlName="password" placeholder="Senha" />
+    </label>
+    <label>
+      Cargo:
+      <select formControlName="role">
+        <option *ngFor="let role of userRoles" [value]="role.value">
+          {{ role.label }}
+        </option>
+      </select>
+      <div *ngIf="role.invalid && formDir.submitted">
+        <p class="error-message" *ngIf="role.errors?.['required']">
+          O cargo deve ser preenchido
+        </p>
+      </div>
+    </label>
+
+    <p class="error-message" *ngIf="editUserErrorMessage">
+      {{ editUserErrorMessage }}
+    </p>
+    <button class="default-btn">Enviar</button>
+  </form>
+</div>

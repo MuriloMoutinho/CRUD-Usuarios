@@ -1,0 +1,32 @@
+.card-user {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  min-width: 250px;
+
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  flex-direction: space-between;
+
+  p {
+    margin: 8px 0;
+  }
+  .title-card {
+    font-weight: bold;
+  }
+
+  .delete-button {
+    background-color: #bf3232;
+    padding: 4px 8px;
+  }
+
+  button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid black;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}

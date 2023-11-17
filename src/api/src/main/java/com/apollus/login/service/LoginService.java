@@ -28,6 +28,6 @@ public class LoginService {
 
         User userLogged = UserSecurityMapper.toUser((UserSecurity) auth.getPrincipal());
         String token = tokenService.generateToken(userLogged);
-        return LoginMapper.ToReponse(token);
+        return LoginMapper.ToReponse(userLogged, token);
     }
 }

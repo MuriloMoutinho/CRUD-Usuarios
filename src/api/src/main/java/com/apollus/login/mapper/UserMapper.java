@@ -1,5 +1,6 @@
 package com.apollus.login.mapper;
 
+import com.apollus.login.dto.user.EditUserRequest;
 import com.apollus.login.dto.user.UserRequest;
 import com.apollus.login.dto.user.UserResponse;
 import com.apollus.login.security.domain.User;
@@ -13,12 +14,13 @@ public class UserMapper {
         return User.builder()
                 .email(request.getEmail())
                 .password(request.getPassword())
-                .role(UserRole.valueOf(request.getRole()))
+                .role(request.getRole())
                 .build();
     }
 
     public static UserResponse ToReponse(User user){
         return UserResponse.builder()
+                .id(user.getId())
                 .email(user.getEmail())
                 .role(user.getRole().getRoleName())
                 .build();

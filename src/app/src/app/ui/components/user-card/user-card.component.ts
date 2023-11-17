@@ -13,4 +13,9 @@ export class UserCardComponent {
   @Input()
   user!: IUser;
 
+  getUserRole() {
+    if(this.user.role === "ADMIN") return "Administrador";
+    return "Usuário";
+  }
+
 }

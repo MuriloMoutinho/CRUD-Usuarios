@@ -5,9 +5,9 @@ import lombok.Getter;
 
 @Getter
 public class EditUserPasswordRequest {
-    @NotBlank
+    @NotBlank(message = "A antiga senha deve ser preenchida")
     private String oldPassword;
 
-    @NotBlank
+    @NotBlank(message = "A nova senha ser preenchida")
     private String newPassword;
 }

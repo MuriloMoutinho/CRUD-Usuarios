@@ -1,8 +1,10 @@
-<header>
-    <h1>Sistema de gerenciamento de usuarios</h1>
-    <div>{{ user }}</div>
-    <nav> 
-        <a routerLink="/meu-perfil">Perfil</a>
-        <a routerLink=""></a>
-    </nav>
+<header class="header">
+  <h1>Sistema de gerenciamento de usuários</h1>
+  <div class="role-title" *ngIf="roleUser">{{ roleUser }}</div>
+  <button class="logout-btn" (click)="logoutSession()">Sair</button>
+  <nav>
+    <a href="/">Início</a>
+    <a href="/profile">Perfil</a>
+    <a *ngIf="isAdmin" routerLink="/admin">Área administrativa</a>
+  </nav>
 </header>

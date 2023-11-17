@@ -1,0 +1,47 @@
+<app-header />
+
+<app-modal-add-user
+  *ngIf="showModalAddUser"
+  (closeModal)="togleModalAddUser()"
+/>
+<app-modal-edit-user
+  *ngIf="userChoseEdit"
+  [user]="userChoseEdit"
+  (closeModal)="removeChoseUserEdit()"
+/>
+<div class="btn-modal-add-user">
+  <button class="default-btn" (click)="togleModalAddUser()">
+    Criar usuário
+  </button>
+</div>
+
+<div class="search-bar">
+  <input
+    [(ngModel)]="searchTearm"
+    name="searchTearm"
+    type="text"
+    placeholder="Pesquise por email"
+  />
+  <button (click)="fetchUsers()" class="default-btn">Pesquisar</button>
+</div>
+
+<div *ngIf="pageUsers.content.length > 0; else noUsersFound" class="list-users">
+  <app-user-card-admin
+    *ngFor="let user of pageUsers.content"
+    [user]="user"
+    (editUser)="choseUserEdit($event)"
+    (deleteUser)="onDeleteUser($event)"
+  />
+</div>
+
+<ng-template #noUsersFound>
+  <p class="no-user-message">Não foi encontrado outros usuários</p>
+</ng-template>
+
+<app-pagination
+  [page]="pageNumber"
+  [lastPage]="pageUsers.last"
+  [totalPages]="pageUsers.totalPages"
+  (nextPage)="onNextPage()"
+  (prevPage)="onPrevPage()"
+/>

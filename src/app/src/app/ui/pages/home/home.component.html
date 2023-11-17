@@ -1,0 +1,27 @@
+<app-header />
+
+<div class="search-bar">
+  <input
+    [(ngModel)]="searchTearm"
+    name="searchTearm"
+    type="text"
+    placeholder="Pesquise por email"
+  />
+  <button (click)="fetchUsers()"class="default-btn">Pesquisar</button>
+</div>
+
+<div *ngIf="pageUsers.content.length > 0; else noUsersFound" class="list-users">
+  <app-user-card *ngFor="let user of pageUsers.content" [user]="user" />
+</div>
+
+<ng-template #noUsersFound>
+  <p class="no-user-message">Não foi encontrado outros usuários</p>
+</ng-template>
+
+<app-pagination
+  [page]="pageNumber"
+  [lastPage]="pageUsers.last"
+  [totalPages]="pageUsers.totalPages"
+  (nextPage)="onNextPage()"
+  (prevPage)="onPrevPage()"
+/>

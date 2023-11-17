@@ -1,0 +1,28 @@
+<form
+  class="form-login default-form"
+  (ngSubmit)="onSubmitLogin()"
+  [formGroup]="loginForm"
+  #formDir="ngForm"
+>
+  <label>
+    Email:
+    <input type="email" formControlName="email" placeholder="Email" />
+    <div *ngIf="email.invalid && formDir.submitted">
+      <p class="error-message" *ngIf="email.errors?.['required']">
+        O email deve ser preenchido
+      </p>
+    </div>
+  </label>
+  <label>
+    Senha:
+    <input type="password" formControlName="password" placeholder="Senha" />
+    <div *ngIf="password.invalid && formDir.submitted">
+      <p class="error-message" *ngIf="password.errors?.['required']">
+        A senha deve ser preenchida
+      </p>
+    </div>
+  </label>
+
+  <p class="error-message" *ngIf="loginErrorMessage">{{ loginErrorMessage }}</p>
+  <button class="default-btn">Enviar</button>
+</form>

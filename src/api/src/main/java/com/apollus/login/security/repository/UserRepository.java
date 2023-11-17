@@ -13,8 +13,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     Optional<User> findByEmail(String email);
 
-    @Query("SELECT u FROM User u WHERE u.email LIKE CONCAT('%', :userEmail, '%')")
-    Page<User> findAllByEmail(@Param("userEmail") String email, Pageable pageable);
+    @Query("SELECT u FROM User u WHERE u.email LIKE CONCAT('%', :userEmail, '%') AND u.id != :userId")
+    Page<User> findAllOthersUsersByEmail(
+            @Param("userEmail") String email, @Param("userId") Integer id, Pageable pageable);
 
     boolean existsByEmail(String email);
 }

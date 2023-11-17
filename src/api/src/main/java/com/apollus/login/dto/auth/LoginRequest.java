@@ -8,9 +8,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LoginRequest {
-    @NotBlank
+    @NotBlank(message = "O email deve ser preenchido")
     @Size(max = 256)
     private String email;
-    @NotBlank
+    @NotBlank(message = "A senha não deve ser preenchida")
     private String password;
 }

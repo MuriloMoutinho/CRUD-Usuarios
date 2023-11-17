@@ -1,5 +1,6 @@
 package com.apollus.login.dto.auth;
 
+import com.apollus.login.security.domain.UserRole;
 import lombok.*;
 
 @Builder
@@ -8,5 +9,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LoginResponse {
+    private UserRole role;
     private String token;
 }

@@ -1,0 +1,8 @@
+<div class="card-user">
+  <div>
+    <p class="title-card">{{ user.email }}</p>
+    <p>{{ getUserRole() }}</p>
+  </div>
+  <button (click)="handleEdit(user)">Editar</button>
+  <button class="delete-button" (click)="handleDelete(user.id)">Deletar</button>
+</div>

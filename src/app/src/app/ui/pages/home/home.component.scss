@@ -1,0 +1,12 @@
+.list-users {
+  display: flex;
+  padding: 0 50px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.no-user-message{
+  text-align: center;
+}
