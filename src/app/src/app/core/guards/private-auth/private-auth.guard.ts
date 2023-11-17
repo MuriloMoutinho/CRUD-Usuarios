@@ -9,8 +9,8 @@ export const privateAuthGuard: CanActivateFn = (route, state) => {
 
   const tokenJwt = cookieService.get(LOCAL_KEYS.TOKEN);
   if (!tokenJwt) {
-    return false;
     router.navigate(['/login']);
+    return false;
   }
   return true;
 };
