@@ -3,6 +3,9 @@
 ## Visão Geral
 O Sistema de Gerenciamento de Usuários é uma aplicação web desenvolvida para permitir o cadastro, autenticação e gestão de usuários. Foi construído utilizando Angular 17 para o frontend, Java Spring Boot 3.1.5 para o backend e SQLite como banco de dados.
 
+## Credenciais de Login
+Para entrar no sistema como administrador pela primeira vez, é possível com o usuário de email `admin@email.com` e senha `123`.
+
 ## Requisitos do Sistema
 - Node.js
 - Angular CLI
